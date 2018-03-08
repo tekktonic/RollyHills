@@ -11,7 +11,6 @@ class Player():
 
     def update(self, game_map):
         self.y += self.dy
-        print(self.y)
         self.grav(game_map)
         if self.y < game_map.map[self.x]:
             self.x -= 1
@@ -26,5 +25,4 @@ class Player():
             self.dy = 0
 
     def jump(self):
-        print("Jump called")
         self.dy = variables.JUMP_HEIGHT
