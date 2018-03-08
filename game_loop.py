@@ -3,7 +3,6 @@ import os
 import select
 import time
 import termios
-import tty
 from sys import stdin
 
 
@@ -13,8 +12,9 @@ from display import display
 
 
 class GameLoop:
-    
+    """Provide the main game loop"""
     def game_loop(self):
+        """The actual game loop itself"""
         while True:
             os.system("clear")
             #            print(self.game_map.map)
@@ -32,13 +32,15 @@ class GameLoop:
             if character == 'q':
                 break
         else:
-            print("\r" + "No input this tick\n")
-"""            
+            print("\r" + "No input this tick\n")"""
 
-
-        
+    def reset(self):
+        """Re-perform initialization and then play again"""
+        self.__init__(self)
+        self.game_loop()
 
     def __init__(self):
+        """ Initialize game state for a new game"""
         #    tty.setraw(stdin)
         self.game_map = gm.Map()
         self.player = p.Player(1, self.game_map.map[1])
@@ -52,10 +54,10 @@ class GameLoop:
 
 
 
-gl = GameLoop()
+GAME = GameLoop()
 
-gl.game_loop()
+GAME.game_loop()
 
 
 
-os.system("reset");
+os.system("reset")
