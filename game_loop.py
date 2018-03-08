@@ -2,7 +2,9 @@
 import os
 import select
 import time
+import timeit
 import termios
+import tty
 from sys import stdin
 
 
@@ -19,20 +21,32 @@ class GameLoop:
             os.system("clear")
             #            print(self.game_map.map)
             display(self.score, self.game_map.map, self.player)
-            print(self.game_map.map)
             self.game_map.step()
             self.player.update(self.game_map)
-            time.sleep(1.0)# + (player.speed * 0.05))
-        """        fds = inpoll.poll(0)
-        if fds != []:
-            character = stdin.read(1)
-            print("\r read this from stdin: " + character + "\n")
-            stdin.flush()
+            tty.setraw(stdin)
+            start_time = time.perf_counter()
+            fds = self.inpoll.poll(500)
+            poll_time = time.perf_counter() - start_time
 
-            if character == 'q':
-                break
-        else:
-            print("\r" + "No input this tick\n")"""
+            sleep_time = max(0, (0.2 - (self.speed * 0.05)) - poll_time)
+            print(fds)
+            if fds != []:
+                character = stdin.read(1)
+                stdin.flush()
+
+                if character == 'q':
+                    break
+                elif character == 'f':
+                    self.speed += 5
+                    self.player.x += 1
+                elif character == 'b':
+                    self.speed -= 5
+                    self.player.x -= 1
+            
+                time.sleep(sleep_time)
+        termios.tcsetattr(stdin, termios.TCSANOW, self.termattrs)
+
+                    
 
     def reset(self):
         """Re-perform initialization and then play again"""
@@ -43,8 +57,8 @@ class GameLoop:
         """ Initialize game state for a new game"""
         #    tty.setraw(stdin)
         self.game_map = gm.Map()
-        self.player = p.Player(1, self.game_map.map[1])
-
+        self.player = p.Player(8, self.game_map.map[8])
+        self.speed = 0
         self.termattrs = termios.tcgetattr(stdin)
         self.inpoll = select.poll()
         self.inpoll.register(stdin, select.POLLIN)

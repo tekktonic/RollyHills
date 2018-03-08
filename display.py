@@ -18,4 +18,4 @@ def display(score, game_map, player):
                     stdout.write('#')
                 else:
                     stdout.write(' ')
-        stdout.write("\n")
+        stdout.write("\r\n")
