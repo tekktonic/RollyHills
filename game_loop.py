@@ -8,6 +8,7 @@ import tty
 from sys import stdin
 
 
+import terminal
 import game_map as gm
 import player as p
 from display import display
@@ -48,7 +49,7 @@ class GameLoop:
             print(self.game_map.map)
 
             time.sleep(sleep_time)
-        termios.tcsetattr(stdin, termios.TCSANOW, self.termattrs)
+        terminal.restore()
 
                     
 
@@ -59,11 +60,10 @@ class GameLoop:
 
     def __init__(self):
         """ Initialize game state for a new game"""
-        #    tty.setraw(stdin)
         self.game_map = gm.Map()
         self.player = p.Player(8, self.game_map.map[8])
         self.speed = 0
-        self.termattrs = termios.tcgetattr(stdin)
+        terminal.save()
         self.inpoll = select.poll()
         self.inpoll.register(stdin, select.POLLIN)
 
@@ -78,4 +78,4 @@ GAME.game_loop()
 
 
 
-os.system("reset")
+#os.system("reset")
