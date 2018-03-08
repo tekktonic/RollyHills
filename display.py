@@ -4,7 +4,7 @@ from sys import stdout
 import variables
 def display(score, game_map, player):
     """Display the gamestate in the user's terminal"""
-    for line in range(0, variables.MAP_HEIGHT):
+    for line in range(0, variables.MAP_HEIGHT+1):
         if line == 0:
             score_text = "score: " + str(score)
             for character in range(0, variables.MAP_WIDTH - len(score_text) + 1):
