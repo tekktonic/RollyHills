@@ -42,6 +42,8 @@ class GameLoop:
                 elif character == 'b':
                     self.speed -= 5
                     self.player.x -= 1
+                elif character == 'j':
+                    self.player.jump()
             
                 time.sleep(sleep_time)
         termios.tcsetattr(stdin, termios.TCSANOW, self.termattrs)

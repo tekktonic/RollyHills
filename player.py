@@ -9,6 +9,7 @@ class Player():
         self.dy = 0
 
 
+
     def update(self, game_map):
         self.grav(game_map)
         self.y += self.dy
