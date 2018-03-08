@@ -27,7 +27,6 @@ Every step the score is increased by the "score increment", which will be 10 + (
 The time between steps (determined by a python sleep, so not strictly precise) is as follows: (0.1 - (player.speed * 0.05)) so a player moving at speed 2 earns 20 points per tick and has 0.2 seconds between ticks, and so on.
 
 ** Basic Game Loop
-Set the "key read" attribute to False.
 The game waits for time_gap seconds.
 If a key was pressed in that time, react to it and set a "key read" attribute to True, drop any other keys pressed.
 The player's state and score are updated.
@@ -35,3 +34,5 @@ If the player is still alive,
 The game displays the game board.
 Otherwise,
 The game quits.
+* Implementation
+Danny took on the display routine and the main game loop.
