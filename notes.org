@@ -1,0 +1,37 @@
+
+* Immediately After Meeting
+Once the meeting was done, the team (Danny, William, Venkata) moved to the main conference room. William and Venkata worked through tutorials while Danny answered questions and tossed things onto the whiteboard. Once whiteboarding was complete and the project (a platformer) was picked, infrastructure was set up by Danny.
+
+* Requirements
+The game will be a platformer in the terminal. There is a player who runs along the hills and is able to jump in order to gain more height. In addition to jumping, the player can move forward, which increases the pace of the game and gives more poitnts per game tick, or move backwards and slow down the game speed, which earns fewer points. Every tick the terrain moves leftward (player moves right) and a new piece of terrain is generated on the right side. If the gap between the player and the next piece of terrain is small enough (1 higher) then the player will automatically pop upwards onto the next piece of terrain, otherwise the player will be pushed back *without* slowing down the game. If the player falls behind the left side of the screen, the game ends.
+
+The terrain is stored as a simple array of the heights, which is then interpreted by the display routine to show correctly on screen. An example, small screen is shown below:
+#+BEGIN_SRC
+                   score: 50
+
+
+
+
+
+ ##    ######    #@  ###
+#########################  # 
+#############################
+#+END_SRC
+
+The player is denoted by an @ while the terrain is #.
+In this case the height map looks something like:
+[2,3,3,2,2,2,2,3,3,3,3,3,2,2,2,2,3,2,2,2,3,3,3,2,1,2]
+
+
+Every step the score is increased by the "score increment", which will be 10 + (5 * player.x_speed).
+The time between steps (determined by a python sleep, so not strictly precise) is as follows: (0.1 - (player.speed * 0.05)) so a player moving at speed 2 earns 20 points per tick and has 0.2 seconds between ticks, and so on.
+
+** Basic Game Loop
+Set the "key read" attribute to False.
+The game waits for time_gap seconds.
+If a key was pressed in that time, react to it and set a "key read" attribute to True, drop any other keys pressed.
+The player's state and score are updated.
+If the player is still alive,
+The game displays the game board.
+Otherwise,
+The game quits.
