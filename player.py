@@ -11,6 +11,7 @@ class Player():
 
     def update(self, game_map):
         self.y += self.dy
+        print(self.y)
         self.grav(game_map)
         if self.y < game_map.map[self.x]:
             self.x -= 1
@@ -18,11 +19,12 @@ class Player():
             exit(0)
 
 
- #   def grav(self, game_map):
-    #    if(self.y) - 1 >= game_map.map[self.x]:
-     #       self.dy = max((self.y - game_map.map[self.x])* -1 , self.dy-1)
-       # else:
-         #   self.dy = 0
+    def grav(self, game_map):
+        if(self.y) - 1 >= game_map.map[self.x]:
+            self.dy = max((self.y - game_map.map[self.x])* -1 , self.dy-1)
+        else:
+            self.dy = 0
 
     def jump(self):
-         self.dy = variables.JUMP_HEIGHT
+        print("Jump called")
+        self.dy = variables.JUMP_HEIGHT

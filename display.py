@@ -12,7 +12,8 @@ def display(score, game_map, player):
             stdout.write(score_text)
         else:
             for character in range(0, variables.MAP_WIDTH):
-                if (player.y == (15 - line) and player.x == character):
+                if (player.y == (variables.MAP_HEIGHT - line)
+                    and player.x == character):
                     stdout.write('@')
                 elif game_map[character] > (15 - line):
                     stdout.write('#')

@@ -43,6 +43,7 @@ class GameLoop:
                     self.speed -= 5
                     self.player.x -= 1
                 elif character == 'j':
+#                    print("J PRESSED GUYS PLEASE NOTICE ME")
                     self.player.jump()
             
                 time.sleep(sleep_time)
