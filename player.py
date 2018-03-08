@@ -14,7 +14,7 @@ class Player():
         self.y += self.dy
         if self.y < game_map.map[self.x]:
             self.x -= 1
-        elif(self.x <0):
+        if(self.x <0):
             sys.exit(0)
 
 
