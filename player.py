@@ -11,6 +11,8 @@ class player():
     def update(self, game_map):
         self.grav(game_map)
         self.y += self.dy
+        if self.y < game_map.Map(self.x):
+            self.x -= 1
 
 
     def grav(self, game_map):
