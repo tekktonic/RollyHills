@@ -18,5 +18,5 @@ class Map:
     def slice(self, prev):
         """Move the map to the left"""
         self.map.insert(prev + 1, (self.map[prev]
-                              + (random.randrange(0, variables.JUMP_HEIGHT)
-                                 * random.randrange(-1, 1))))
+                                   + (random.randrange(0, variables.JUMP_HEIGHT)
+                                      * random.randrange(-1, 1))))
