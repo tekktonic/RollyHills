@@ -7,7 +7,7 @@ class Player():
         self.x = x
         self.y = y
         self.dy = 0
-
+        self.onclick = False
 
     def update(self, game_map):
         self.y += self.dy
