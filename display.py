@@ -1,9 +1,10 @@
-"""Abstract away the system and allow us to work nicely with the display as if it were a good canvas"""
+"""Abstract away the system and allow us to work nicely with the display
+as if it were a good canvas"""
 from sys import stdout
 
 def display(score, game_map, player):
     """Display the gamestate in the user's terminal"""
-    for line in range(0,15):
+    for line in range(0, 15):
         if line == 0:
             score_text = "score: " + str(score)
             for character in range(0, 30 - len(score_text) + 1):
@@ -18,3 +19,4 @@ def display(score, game_map, player):
                 else:
                     stdout.write(' ')
         stdout.write("\n")
+        
