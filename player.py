@@ -26,6 +26,6 @@ class Player():
 
     def jump(self):
         onclick = False
-        if onclick(True) :
+        if onclick is True:
             self.dy = variables.JUMP_HEIGHT
 
