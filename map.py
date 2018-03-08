@@ -1,20 +1,22 @@
+"""Generate and hold the game map"""
 import random
-import globals
+import variables
 
 class Map:
     """Our map """
     def generate(self):
-        self.map[0] = random.randrange(0,9)
-        for i in range(1,globals.MAP_WIDTH):
-            self.slice(i-1)
+        """Generate our initial map"""
+        self.map[0] = random.randrange(0, 9)
+        for i in range(1, variables.MAP_WIDTH):
+            self.slice(i - 1)
 
     def __init__(self):
         self.map = []
 
 
 
-    def slice(self,prev):
+    def slice(self, prev):
         """Move the map to the left"""
-        self.map[prev+1]= self.map[prev] + (random.randrange(0,globals.JUMP_HEIGHT) * random.randrange(-1,1))
-
-
+        self.map[prev + 1] = (self.map[prev]
+                              + (random.randrange(0, variables.JUMP_HEIGHT)
+                                 * random.randrange(-1, 1)))
