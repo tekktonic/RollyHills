@@ -20,3 +20,9 @@ class Map:
         self.map.insert(prev + 1, (self.map[prev]
                                    + (random.randrange(0, variables.JUMP_HEIGHT)
                                       * random.randrange(-1, 1))))
+
+    def step(self):
+        """"move all the array contents left by 1"""
+        for i in range(1, variables.MAP_WIDTH):
+            self.map[i-1] = self.map[i]
+        self.slice(variables.MAP_WIDTH -2)
