@@ -19,12 +19,12 @@ class Map:
 
     def slice(self, prev):
         """Move the map to the left"""
-        self.map[prev + 1] = max(0, self.map[prev]
-                                   + min(0, (random.randrange(0, variables.JUMP_HEIGHT)
-                                      * random.randrange(-1, 2))))
+        self.map[prev + 1] = max(0, min(10, self.map[prev]
+                                 + ((random.randrange(-1, 2)
+                                     * random.randrange(0, variables.JUMP_HEIGHT)))))
 
     def step(self):
         """"move all the array contents left by 1"""
         for i in range(1, variables.MAP_WIDTH):
             self.map[i-1] = self.map[i]
-        self.slice(variables.MAP_WIDTH -2)
+        self.slice(variables.MAP_WIDTH - 2)

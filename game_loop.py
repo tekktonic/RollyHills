@@ -29,7 +29,6 @@ class GameLoop:
             poll_time = time.perf_counter() - start_time
 
             sleep_time = max(0, (0.2 - (self.speed * 0.05)) - poll_time)
-            print(fds)
             if fds != []:
                 character = stdin.read(1)
                 stdin.flush()
@@ -43,10 +42,12 @@ class GameLoop:
                     self.speed -= 5
                     self.player.x -= 1
                 elif character == 'j':
-
                     self.player.jump()
-            
-                time.sleep(sleep_time)
+
+            self.score += 10 + (5 * self.speed)
+            print(self.game_map.map)
+
+            time.sleep(sleep_time)
         termios.tcsetattr(stdin, termios.TCSANOW, self.termattrs)
 
                     

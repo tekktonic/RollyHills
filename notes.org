@@ -35,4 +35,4 @@ The game displays the game board.
 Otherwise,
 The game quits.
 * Implementation
-Danny took on the display routine and the main game loop.
+Danny took on the display routine and the main game loop. William and Venkata shared the player class, and William threw together map generation.
