@@ -7,6 +7,7 @@ class Player():
         self.x = x
         self.y = y
         self.dy = 0
+        self.onclick = False
 
 
     def update(self, game_map):
@@ -25,7 +26,6 @@ class Player():
             self.dy = 0
 
     def jump(self):
-        onclick = False
-        if onclick is True:
-            self.dy = variables.JUMP_HEIGHT
+        onclick = True
+        self.dy = variables.JUMP_HEIGHT
 
