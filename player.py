@@ -1,5 +1,6 @@
 import variables
 import game_map
+import sys
 
 class Player():
     def __init__(self,x,y):
@@ -13,6 +14,8 @@ class Player():
         self.y += self.dy
         if self.y < game_map.map[self.x]:
             self.x -= 1
+        elif(self.x <0):
+            sys.exit(0)
 
 
     def grav(self, game_map):
