@@ -15,4 +15,3 @@ def test_map_validity():
         map_var.step()
     for i in range(0, variables.MAP_WIDTH):
         assert map_var.map[i] >= 0 and map_var.map[i] <= 10
-    

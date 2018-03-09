@@ -2,8 +2,6 @@
 import os
 import select
 import time
-import timeit
-import termios
 import tty
 from sys import stdin
 
@@ -50,8 +48,6 @@ class GameLoop:
 
             time.sleep(sleep_time)
         terminal.restore()
-
-                    
 
     def reset(self):
         """Re-perform initialization and then play again"""

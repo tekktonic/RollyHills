@@ -1,5 +1,5 @@
-"""Abstract away the system and allow us to work nicely with the display
-as if it were a good canvas"""
+"""Abstract away the system and allow us to work nicely
+with the display as if it were a good canvas"""
 from sys import stdout
 import variables
 def display(score, game_map, player):
@@ -13,7 +13,7 @@ def display(score, game_map, player):
         else:
             for character in range(0, variables.MAP_WIDTH):
                 if (player.y == (variables.MAP_HEIGHT - line)
-                    and player.x == character):
+                        and player.x == character):
                     stdout.write('@')
                 elif game_map[character] > (15 - line):
                     stdout.write('#')
