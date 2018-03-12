@@ -1,7 +1,7 @@
-#Immediately After Meeting
+# Immediately After Meeting
 Once the meeting was done, the team (Danny, William, Venkata) moved to the main conference room. William and Venkata worked through tutorials while Danny answered questions and tossed things onto the whiteboard. Once whiteboarding was complete and the project (a platformer) was picked, infrastructure was set up by Danny.
 
-#Requirements
+# Requirements
 The game will be a platformer in the terminal. There is a player who runs along the hills and is able to jump in order to gain more height. In addition to jumping, the player can move forward, which increases the pace of the game and gives more poitnts per game tick, or move backwards and slow down the game speed, which earns fewer points. Every tick the terrain moves leftward (player moves right) and a new piece of terrain is generated on the right side. If the gap between the player and the next piece of terrain is small enough (1 higher) then the player will automatically pop upwards onto the next piece of terrain, otherwise the player will be pushed back *without* slowing down the game. If the player falls behind the left side of the screen, the game ends.
 
 The terrain is stored as a simple array of the heights, which is then interpreted by the display routine to show correctly on screen. An example, small screen is shown below:
@@ -33,12 +33,12 @@ If the player is still alive,
 The game displays the game board.
 Otherwise,
 The game quits.
-#Implementation
+# Implementation
 Danny took on the display routine and the main game loop. William and Venkata shared the player class, and William did map generation.
 Note: requires a unix system.
 
 
-#Instructions
+# Instructions
 F moves forward,
 B moves backward,
 J jumps
