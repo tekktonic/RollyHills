@@ -25,7 +25,7 @@ In this case the height map looks something like:
 Every step the score is increased by the "score increment", which will be 10 + (5 * player.x_speed).
 The time between steps (determined by a python sleep, so not strictly precise) is as follows: (0.1 - (player.speed * 0.05)) so a player moving at speed 2 earns 20 points per tick and has 0.2 seconds between ticks, and so on.
 
-##Basic Game Loop
+## Basic Game Loop
 The game waits for time_gap seconds.
 If a key was pressed in that time, react to it and set a "key read" attribute to True, drop any other keys pressed.
 The player's state and score are updated.
