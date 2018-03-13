@@ -1,5 +1,7 @@
 import variables
 import game_map
+import terminal
+
 import sys
 
 class Player():
@@ -10,16 +12,17 @@ class Player():
         self.onclick = False
 
     def update(self, game_map):
-        self.y += self.dy
         self.grav(game_map)
+        self.y += self.dy
+
+        if self.y == (game_map.map[self.x] - 1):
+            self.y += 1
         if self.y < game_map.map[self.x]:
             self.x -= 1
-        elif self.y == game_map.map[self.x]:
-            self.y += 1
-        
         if (game_map.map[self.x] == self.y - 1):
             self.onclick = False
         if(self.x < 0):
+            terminal.restore()
             exit(0)
 
 
